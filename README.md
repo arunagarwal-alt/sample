@@ -1,4 +1,4 @@
-# sample education registration form
+# sample login form with floating placeholders
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,158 +6,195 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <style>
-      html, body {
-      min-height: 100%;
-      }
-      body, div, form, input, select, p { 
-      padding: 0;
-      margin: 0;
-      outline: none;
-      font-family: Roboto, Arial, sans-serif;
-      font-size: 16px;
-      color: #eee;
-      }
-      body {
-      background: url("/uploads/media/default/0001/01/b5edc1bad4dc8c20291c8394527cb2c5b43ee13c.jpeg") no-repeat center;
-      background-size: cover;
-      }
-      h1, h2 {
-      text-transform: uppercase;
-      font-weight: 400;
-      }
-      h2 {
-      margin: 0 0 0 8px;
-      }
-      .main-block {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      padding: 25px;
-      background: rgba(0, 0, 0, 0.5); 
-      }
-      .left-part, form {
-      padding: 25px;
-      }
-      .left-part {
-      text-align: center;
-      }
-      .fa-graduation-cap {
-      font-size: 72px;
-      }
-      form {
-      background: rgba(0, 0, 0, 0.7); 
-      }
-      .title {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      }
-      .info {
-      display: flex;
-      flex-direction: column;
-      }
-      input, select {
-      padding: 5px;
-      margin-bottom: 30px;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid #eee;
-      }
-      input::placeholder {
-      color: #eee;
-      }
-      option:focus {
-      border: none;
-      }
-      option {
-      background: black; 
-      border: none;
-      }
-      .checkbox input {
-      margin: 0 10px 0 0;
-      vertical-align: middle;
-      }
-      .checkbox a {
-      color: #26a9e0;
-      }
-      .checkbox a:hover {
-      color: #85d6de;
-      }
-      .btn-item, button {
-      padding: 10px 5px;
-      margin-top: 20px;
-      border-radius: 5px; 
-      border: none;
-      background: #26a9e0; 
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 400;
-      color: #fff;
-      }
-      .btn-item {
-      display: inline-block;
-      margin: 20px 5px 0;
-      }
-      button {
-      width: 100%;
-      }
-      button:hover, .btn-item:hover {
-      background: #85d6de;
-      }
-      @media (min-width: 568px) {
-      html, body {
-      height: 100%;
-      }
-      .main-block {
-      flex-direction: row;
-      height: calc(100% - 50px);
-      }
-      .left-part, form {
-      flex: 1;
-      height: auto;
-      }
-      }
-    </style>
+      html {
+  height: 100%;
+}
+body {
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background: linear-gradient(#141e30, #243b55);
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.login-box a:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+}
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+.login-box a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.login-box a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.login-box a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.login-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+      <style>
   </head>
   <body>
-    <div class="main-block">
-      <div class="left-part">
-        <i class="fas fa-graduation-cap"></i>
-        <h1>Register to our courses</h1>
-        <p>W3docs provides free learning materials for programming languages like HTML, CSS, Java Script, PHP etc.</p>
-        <div class="btn-group">
-          <a class="btn-item" href="https://www.w3docs.com/learn-html.html">Learn HTML</a>
-          <a class="btn-item" href="https://www.w3docs.com/quiz/#">Select Quiz</a>
-        </div>
-      </div>
-      <form action="/">
-        <div class="title">
-          <i class="fas fa-pencil-alt"></i> 
-          <h2>Register here</h2>
-        </div>
-        <div class="info">
-          <input class="fname" type="text" name="name" placeholder="Full name">
-          <input type="text" name="name" placeholder="Email">
-          <input type="text" name="name" placeholder="Phone number">
-          <input type="password" name="name" placeholder="Password">
-          <select>
-            <option value="course-type" selected>Course type*</option>
-            <option value="short-courses">Short courses</option>
-            <option value="featured-courses">Featured courses</option>
-            <option value="undergraduate">Undergraduate</option>
-            <option value="diploma">Diploma</option>
-            <option value="certificate">Certificate</option>
-            <option value="masters-degree">Masters degree</option>
-            <option value="postgraduate">Postgraduate</option>
-          </select>
-        </div>
-        <div class="checkbox">
-          <input type="checkbox" name="checkbox"><span>I agree to the <a href="https://www.w3docs.com/privacy-policy">Privacy Poalicy for W3Docs.</a></span>
-        </div>
-        <button type="submit" href="/">Submit</button>
-      </form>
+   <div class="login-box">
+  <h2>Login</h2>
+  <form>
+    <div class="user-box">
+      <input type="text" name="" required="">
+      <label>Username</label>
     </div>
+    <div class="user-box">
+      <input type="password" name="" required="">
+      <label>Password</label>
+    </div>
+    <a href="#">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Submit
+    </a>
+  </form>
+</div>
   </body>
 </html>
